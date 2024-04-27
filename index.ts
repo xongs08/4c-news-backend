@@ -7,11 +7,16 @@ dotenv.config()
 
 const app: express.Express = express()
 
+const port = process.env.PORT || 3001
+
 app.use(cors())
 app.use(bodyParser.json())
 
 app.use("/api", router)
 
-app.listen(3000, () => console.log("Server ready on port 3000."))
+const server = app.listen(port, () => console.log(`Server ready on port ${port}.`))
+
+server.keepAliveTimeout = 120 * 1000
+server.headersTimeout = 120 * 1000
 
 export default app
