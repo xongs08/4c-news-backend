@@ -1,16 +1,26 @@
 import asyncHandler from 'express-async-handler'
-import { isAuth } from '../middlewares/auth'
+import { isAuth } from '../utils/auth'
 import { doc, setDoc } from 'firebase/firestore'
-import { db } from "../middlewares/firebase"
-import { generateUniqueId } from '../middlewares/createId'
-import { getFormattedDate } from '../middlewares/getFormattedDate'
+import { db } from "../firebase"
+import { generateUniqueId } from '../utils/createId'
+import { getFormattedDate } from '../utils/getFormattedDate'
 
 export const CreateArticle = asyncHandler(async (req, res) => {
-  const { title, media, paragraph, author, auth } = req.body
+  const { title, media, paragraph, author, date, auth } = req.body
 
-  isAuth(auth, () => {
+  isAuth(auth, async () => {
     const articleRef = doc(db, 'articles', generateUniqueId())
-    setDoc(articleRef, {
+  
+    if (date !== '') setDoc(articleRef, {
+      title: title,
+      media: media,
+      paragraph: paragraph,
+      author: author,
+      date: date
+    })
+      .then(doc => res.send("Article Created Successfullty!").json({ createdArticle: doc }).status(200))
+      .catch(err => res.send(`Error Trying to Create Article: ${err}`).status(500))
+    else setDoc(articleRef, {
       title: title,
       media: media,
       paragraph: paragraph,

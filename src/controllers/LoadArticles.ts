@@ -1,7 +1,7 @@
 import asyncHandler from 'express-async-handler'
 import { collection, getDocs } from 'firebase/firestore'
-import { db } from '../middlewares/firebase'
-import { isAuth } from '../middlewares/auth'
+import { db } from '../firebase'
+import { isAuth } from '../utils/auth'
 
 export const LoadArticles = asyncHandler(async (req, res) => {
   const auth = req.params.auth

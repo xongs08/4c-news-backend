@@ -7,10 +7,15 @@ import { DeleteArticle } from "./controllers/RemoveArticle"
 
 const router = Router()
 
+router.get("/", (req, res) => res.send(`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Helvetica;"><h1>Error: Bad Route</h1><br><p>Check <a href="/article/example"><pre>/article/example</pre></a> to see a demo</p></div>`))
+
 router.post("/article/create", CreateArticle)
-router.get("/article/:id/:auth", GetArticle)
+
+router.get("/article/:id", GetArticle)
 router.get("/articles/loadall/:auth", LoadArticles)
-router.post("/article/update/:id/:auth", UpdateArticle)
+
+router.put("/article/update/:id/:auth", UpdateArticle)
+
 router.delete("/article/:id/:auth", DeleteArticle)
 
 export default router

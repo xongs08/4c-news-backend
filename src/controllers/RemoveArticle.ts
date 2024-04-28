@@ -1,7 +1,7 @@
 import asyncHandler from 'express-async-handler'
-import { db } from '../middlewares/firebase'
+import { db } from '../firebase'
 import { doc, deleteDoc, getDoc } from 'firebase/firestore'
-import { isAuth } from '../middlewares/auth'
+import { isAuth } from '../utils/auth'
 
 export const DeleteArticle = asyncHandler(async (req, res) => {
   const articleId = req.params.id
