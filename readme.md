@@ -1,6 +1,6 @@
 # NEWS ARTICLES API
 ### Live service:
-https://fourc-news-backend.onrender.com/api/
+https://fourc-news-backend.onrender.com
 
 ## About this project
 The first time i thinked about starting this project, i was at my english class and we were talking about news and how fake news can harm someone's professional career and life, then i had the idea: "Why not create my own website so me & my friends could manipulate the media by ourselves for fun", (yeah, great idea i know) and that's why i created this project.
