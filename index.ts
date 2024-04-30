@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 
 app.get("/", (req, res) => res.send(`<!doctype><html><body><div style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Helvetica;"><h1>Error: Bad Route</h1><br><p>Check <a href="/api/article/example"><pre>/api/article/example</pre></a> to see a demo</p></div><body></html>`))
 
-app.use("/api", router)
+app.use("/", router)
 
 const server = app.listen(port, () => console.log(`Server ready on port ${port}.`))
 
