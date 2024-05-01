@@ -5,6 +5,7 @@ import { isAuth } from '../utils/auth'
 
 export const DeleteArticle = asyncHandler(async (req, res) => {
   const auth = req.params.auth
+  
   isAuth(auth, async () => {
     const articleId = req.params.id
 
