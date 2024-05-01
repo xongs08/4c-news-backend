@@ -4,6 +4,7 @@ import { GetArticle } from "./controllers/GetArticle"
 import { LoadArticles } from "./controllers/LoadArticles"
 import { UpdateArticle } from "./controllers/UpdateArticle"
 import { DeleteArticle } from "./controllers/RemoveArticle"
+import { Authorize } from "./Authorize"
 
 const router = Router()
 
@@ -13,6 +14,8 @@ router.post("/article/create", CreateArticle)
 
 router.get("/article/:id", GetArticle)
 router.get("/articles/loadall/:auth", LoadArticles)
+
+router.get("/admin/authorize/:auth", Authorize)
 
 router.put("/article/update/:id/:auth", UpdateArticle)
 
