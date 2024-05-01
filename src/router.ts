@@ -12,7 +12,7 @@ router.get("/", (req, res) => res.send(`<div style="display:flex;flex-direction:
 
 router.post("/article/create", CreateArticle)
 
-router.get("/article/:id", GetArticle)
+router.get("/article/:id/:auth", GetArticle)
 router.get("/articles/loadall/:auth", LoadArticles)
 
 router.get("/admin/authorize/:auth", Authorize)

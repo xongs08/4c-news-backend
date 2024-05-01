@@ -4,11 +4,10 @@ import { doc, getDoc } from 'firebase/firestore'
 import { isAuth } from '../utils/auth'
 
 export const GetArticle = asyncHandler(async (req, res) => {
+  const articleId = req.params.id
   const auth = req.params.auth
   
   isAuth(auth, async () => {
-    const articleId = req.params.id
-
     const articleRef = doc(db, "articles", articleId)
     const snapshot = await getDoc(articleRef)
 
